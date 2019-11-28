@@ -136,12 +136,17 @@ git 常用指令记录
 1.设置或修改git账号
     $ git config --global user.name "Your Name"             --global参数代表这是一个全局配置
 	$ git config --global user.email "email@example.com"
+
 2.分支管理
+    $ git branch       查看本地分支
+    $ git branch -r    查看远程分支
+    $ git branch -a    查看所有分支
     $ git branch dev   创建dev分支
     $ git checkout dev 切换到dev分支
     $ git checkout -b dev 创建并切换到dev分支
 
-2.查看本地仓库状态，保存代码
+**添加和提交文件的时候一定搞清楚是在哪个分支进行的操作
+3.查看本地仓库状态，保存代码
     $ git status
     $ git add <file> 或 $ git add -A   添加所有的修改到暂存区stage
     $ git commit -m '提交说明'       把暂存区所有内容提交到本地版本库
@@ -149,7 +154,7 @@ git 常用指令记录
     $ git checkout -- <file>      使用仓库里的文件内容替换工作区文件内容（优先与暂存区同步，其次与版本库同步）
     $ git rm --cache <file>       把文件从暂存区删除
     
-3.版本回退
+4.版本回退
     $ git log –pretty=oneline     查看commit记录
     
     $ git reset --hard HEAD^      工作区回退到上一个commit版本 
