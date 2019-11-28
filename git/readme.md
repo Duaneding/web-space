@@ -154,7 +154,9 @@ git 常用指令记录
     $ git branch -d dev   删除dev分支
     11）合并冲突
     当两个分支都修改了同一个文件，并且提交了commit，在合并这两个分支的时候，会出现冲突。
-    手动解决冲突后
+    手动解决冲突后,git add <file> --> git commit -m 'msg' --> git branch -d dev
+
+
 **添加和提交文件的时候一定搞清楚是在哪个分支进行的操作
 3.查看本地仓库状态，保存代码
     $ git status
