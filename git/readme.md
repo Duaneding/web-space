@@ -144,6 +144,11 @@ git 常用指令记录
     $ git branch dev   创建dev分支
     $ git checkout dev 切换到dev分支,切换分支的时候工作区的内容也会变化，与最后一次commit同步
     $ git checkout -b dev 创建并切换到dev分支
+ 0）保存现场，对于暂时不想commit的内容可以先缓存起来
+    $ git stash      保存现场，一个分支最好只保存一个临时现场
+    $ git stash list      //查看保存的现场清单
+	$ git stash pop stash@{0}  //恢复指定现场 
+	$ git status         //查看恢复的现场
  1）合并分支
     $ git merge dev   在master分支执行表示把dev分支合并到master分支
     $ git branch -d dev   删除dev分支
