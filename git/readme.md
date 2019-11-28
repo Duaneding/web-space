@@ -156,6 +156,10 @@ git 常用指令记录
     当两个分支都修改了同一个文件，并且提交了commit，在合并这两个分支的时候，会出现冲突。
     手动解决冲突后,git add <file> --> git commit -m 'msg' --> git branch -d dev
 
+ 2)连接远程仓库
+    $ git remote rm origin    删除关联的远程分支
+    $ git remote add origin  https://github.com/Duaneding/web-space.git  关联远程仓库
+    $ git pull origin master --allow-unrelated-histories   从远程分支拉取，并合并远程分支
 
 **添加和提交文件的时候一定搞清楚是在哪个分支进行的操作
 3.查看本地仓库状态，保存代码
