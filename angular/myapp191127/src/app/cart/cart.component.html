@@ -1,0 +1,18 @@
+<h3>Cart</h3>
+<p><a routerLink="/shipping">运费价格</a></p>
+<div class="cart-item" *ngFor="let item of items">
+  <span>{{ item.name }}</span>
+  <span>{{ item.price | currency }}</span>
+</div>
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+  <div>
+    <label>姓名</label>
+    <input type="text" formControlName="name">
+  </div>
+  <div>
+    <label>地址</label>
+    <input type="text" formControlName="address">
+  </div>
+  <button class="button" type="submit">提交</button>
+
+</form>
