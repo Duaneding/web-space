@@ -144,19 +144,24 @@ git 常用指令记录
     $ git branch dev   创建dev分支
     $ git checkout dev 切换到dev分支,切换分支的时候工作区的内容也会变化，与最后一次commit同步
     $ git checkout -b dev 创建并切换到dev分支
-
+ 1）合并分支
+    $ git merge dev   在master分支执行表示把dev分支合并到master分支
+    $ git branch -d dev   删除dev分支
+    11）合并冲突
+    当两个分支都修改了同一个文件，并且提交了commit，在合并这两个分支的时候，会出现冲突。
+    手动解决冲突后
 **添加和提交文件的时候一定搞清楚是在哪个分支进行的操作
 3.查看本地仓库状态，保存代码
     $ git status
     $ git add <file> 或 $ git add -A   添加所有的修改到暂存区stage
-    $ git diff <file>              查看工作区与暂存区内容差异
+    $ git diff <file>               查看工作区与暂存区内容差异
     $ git commit -m '提交说明'       把暂存区所有内容提交到本地版本库
 
     $ git checkout -- <file>      使用仓库里的文件内容替换工作区文件内容（优先与暂存区同步，其次与版本库同步）
     $ git rm --cache <file>       把文件从暂存区删除
     
 4.版本回退
-    $ git log –pretty=oneline     查看commit记录
+    $ git log –pretty=oneline     查看当前分支的commit记录
     
     $ git reset --hard HEAD^      工作区回退到上一个commit版本 
     $ git reset --hard HEAD^^     工作区回退到上两个commit版本 
