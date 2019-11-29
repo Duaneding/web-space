@@ -160,8 +160,13 @@ git 常用指令记录
     $ git remote rm origin    删除关联的远程分支
     $ git remote add origin  https://github.com/Duaneding/web-space.git  关联远程仓库
     $ git pull origin master --allow-unrelated-histories   从远程分支拉取，并合并远程分支
+    $ git push       把本地的版本库推送到远程
+
+    从远程拉取代码可能出现冲突，手动解决，提交，重新推动即可。
+
 
 **添加和提交文件的时候一定搞清楚是在哪个分支进行的操作
+
 3.查看本地仓库状态，保存代码
     $ git status
     $ git add <file> 或 $ git add -A   添加所有的修改到暂存区stage
@@ -180,3 +185,18 @@ git 常用指令记录
 
     $ git reflog                  查看所有分支操作记录，包括删除commit的记录
     $ git reset --hard 6fcfc89    通过commit产生的id号回退版本
+5.给提交打标签
+	$ git tag v0.1-exp            	   轻量标签，只有标签记号
+	$ git tag -a v1.0 -m '正式版本'     标签附注，添加了标签说明和打标签人的信息
+	$ git tag -a v1.2 9fceb02          通过commit的ID打标签
+
+	$ git show v1.2              查看v1.2这个标签详细信息
+	$ git tag -l 'v0.1*'         查看以v0.1开头的所有标签
+
+	$ git push origin v1.5       推送标签到远程
+	$ git push origin --tags     推送所有的本地标签
+
+	$ git tag -d v1.4-lw         删除本地标签
+	$ git push origin :refs/tags/v1.4-lw   把删除推送到远程
+
+	$ git checkout v1.0.0        切换到某个标签版本 
