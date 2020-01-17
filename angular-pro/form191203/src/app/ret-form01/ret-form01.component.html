@@ -1,0 +1,57 @@
+<h2>响应式表单验证</h2>
+<form [formGroup]="profilename" (ngSubmit)="onSubmit()">
+  <label>firstname: <input type="text" formControlName="firstname" required /></label>
+  <div class="warn" *ngIf="
+      profilename.controls.firstname.invalid &&
+      (profilename.controls.firstname.touched ||
+        profilename.controls.firstname.dirty)
+    ">
+    <div *ngIf="profilename.controls.firstname.errors.required">
+      firstname是必填项
+    </div>
+    <div *ngIf="profilename.controls.firstname.errors.minlength">
+      firstname最少4个字符
+    </div>
+    <div *ngIf="profilename.controls.firstname.errors.fbdname">
+      firstname不能包含大司马缸
+    </div>
+  </div>
+  <label>lastname(async): <input type="text" formControlName="lastname" required /></label>
+  <div class="warn" *ngIf="profilename.controls.lastname.pending">Validating...</div>
+  <div class="warn" *ngIf="profilename.controls.lastname.invalid && (profilename.controls.lastname.touched ||
+  profilename.controls.lastname.dirty)">
+
+    <div *ngIf="profilename.controls.lastname.errors?.lastname">名字已存在</div>
+  </div>
+
+
+  <div formGroupName="address">
+    <h3>address</h3>
+    <label>street: <input type="text" formControlName="street" /></label>
+    <label>city: <input type="text" formControlName="city" /></label>
+    <label>state: <input type="text" formControlName="state" required /></label>
+    <div class="warn" *ngIf="
+        profilename.controls.address.controls.state.invalid &&
+        (profilename.controls.address.controls.state.dirty ||
+          profilename.controls.address.controls.state.touched)
+      ">
+      <div *ngIf="profilename.controls.address.controls.state.errors.required">
+        state是必填项
+      </div>
+      <div *ngIf="profilename.controls.address.controls.state.errors.fbdname">
+        state不能包含Alabama
+      </div>
+    </div>
+    <label>zip: <input type="text" formControlName="zip" required /></label>
+  </div>
+  <div class="warn" *ngIf="profilename.controls.address.errors?.identityvalidator">state不能与zip相同</div>
+  <div formArrayName="aliases">
+    <h3>aliase</h3>
+    <button (click)="addalias()">添加</button>
+    <label *ngFor="let x of aliases.controls; index as i">{{ i }}:<input type="text" [formControlName]="i" /></label>
+  </div>
+  <p>Form Value:{{ profilename.value | json }}</p>
+  <p>Form Status:{{ profilename.status }}</p>
+  <button (click)="updateprofilename()">更新</button>
+  <button type="submit" [disabled]="!profilename.valid">提交</button>
+</form>
