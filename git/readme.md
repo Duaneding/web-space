@@ -198,5 +198,13 @@ git 常用指令记录
 
 	$ git tag -d v1.4-lw         删除本地标签
 	$ git push origin :refs/tags/v1.4-lw   把删除推送到远程
-
+    nima
 	$ git checkout v1.0.0        切换到某个标签版本 
+
+  --------------------------------------------------------------------
+  零散记录
+  git fetch
+  查看本地分支 git branch               查看远程分支 git branch -r   或   git branch -a
+  删除本地分支 git branch -d 分支名      删除远程分支 git push origin --delete 分支名
+
+  
