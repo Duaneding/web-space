@@ -203,7 +203,7 @@ git 常用指令记录
 
   --------------------------------------------------------------------
   零散记录
-  git
+  git    什么玩意
   查看本地分支 git branch               查看远程分支 git branch -r   或   git branch -a
   删除本地分支 git branch -d 分支名      删除远程分支 git push origin --delete 分支名
 
